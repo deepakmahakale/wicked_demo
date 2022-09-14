@@ -6,10 +6,13 @@ class Auth0Controller < ApplicationController
 
     session[:user_id] = request.env['omniauth.auth'][:uid]
 
-    handle_new_user unless User.exists?(auth_user_id: session[:user_id])
-
     # Redirect to the URL you want after successful auth
-    redirect_to '/'
+    if User.exists?(auth_user_id: session[:user_id])
+      redirect_to '/'
+    else
+      handle_new_user
+      redirect_to onboarding_path(:basic_details)
+    end
   end
 
   def failure
