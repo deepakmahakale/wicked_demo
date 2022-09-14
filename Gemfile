@@ -73,7 +73,7 @@ end
 
 gem "bootstrap"
 gem "simple_form"
-gem "wicked", github: "zombocom/wicked", branch: "rebased_http_status_codes"
+gem "wicked"
 gem 'omniauth-auth0', '~> 3.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 gem "font-awesome-rails"
