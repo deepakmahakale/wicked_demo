@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo Application for wicked
 
-Things you may want to cover:
+This application is built with
 
-* Ruby version
+- [auth0](https://auth0.com/) for authentication
+- [bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) for styling
+- [simple form](https://github.com/heartcombo/simple_form) for form
 
-* System dependencies
+## Screenshots
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Step 1](public/screenshots/step_1.png)
+![Step 2](public/screenshots/step_2.png)
+![Step 3](public/screenshots/step_3.png)
