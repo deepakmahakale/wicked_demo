@@ -1,4 +1,4 @@
-class OnboardingController < ApplicationController
+class OnboardingController < ApplicationSecuredController
   include Wicked::Wizard
 
   steps :basic_details, :personal_details, :address_details
@@ -29,7 +29,7 @@ class OnboardingController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :first_name, :last_name, :email, :age, :gender, :date_of_birth
+      :first_name, :last_name, :age, :gender, :date_of_birth
     )
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_14_043617) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_125326) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "address_line1"
@@ -24,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_043617) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
     t.string "first_name"
     t.string "last_name"
     t.string "age"
@@ -32,6 +31,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_043617) do
     t.datetime "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "auth_provider_name", null: false
+    t.string "auth_user_id", null: false
+    t.string "auth_user_email", null: false
+    t.index ["auth_provider_name"], name: "index_users_on_auth_provider_name"
+    t.index ["auth_user_email"], name: "index_users_on_auth_user_email"
+    t.index ["auth_user_id"], name: "index_users_on_auth_user_id"
   end
 
   add_foreign_key "addresses", "users"

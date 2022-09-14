@@ -1,3 +1,5 @@
-<div class="text-center">
-  <%= link_to 'Onboarding', onboarding_path(:basic_details), class: 'btn btn-primary' %>
-</div>
+<% if current_user %>
+  <div class="text-center">
+    <%= link_to 'Onboarding', onboarding_path(:basic_details), class: 'btn btn-primary' %>
+  </div>
+<% end %>

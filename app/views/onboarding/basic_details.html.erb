@@ -3,9 +3,9 @@
 
   <%= simple_form_for @user, url: onboarding_path, method: :patch, wrapper: :horizontal_form  do |form| %>
     <div class="card-body d-grid gap-3">
+      <%= form.input :auth_user_email, label: 'Email', disabled: true, readonly: true %>
       <%= form.input :first_name %>
       <%= form.input :last_name %>
-      <%= form.input :email %>
     </div>
 
     <div class="card-footer bg-transparent">
