@@ -71,5 +71,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem "wicked"
 gem "bootstrap"
+gem "simple_form"
+gem "wicked", github: "zombocom/wicked", branch: "rebased_http_status_codes"
