@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_043617) do
     t.string "last_name"
     t.string "age"
     t.string "gender"
-    t.string "date_of_birth"
+    t.datetime "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

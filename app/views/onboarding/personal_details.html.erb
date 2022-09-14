@@ -1,3 +1,23 @@
-Personal
+<h1>Personal Details</h1>
 
-<%= link_to 'skip', next_wizard_path %>
+<%= form_for @user, url: onboarding_path, method: :patch, html: { class: 'form row g-3' } do |form| %>
+  <div class="col-6">
+    <%= form.label :age, class: 'form-label' %>
+    <%= form.number_field :age, class: 'form-control' %>
+  </div>
+
+  <div class="col-6">
+    <%= form.label :gender, class: 'form-label' %>
+    <%= form.select :gender, %w[Male Female], {}, class: 'form-select' %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :date_of_birth, class: 'form-label' %>
+    <%= form.date_field :date_of_birth, class: 'form-control' %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+    <%= link_to 'skip', next_wizard_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

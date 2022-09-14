@@ -1,3 +1,33 @@
-Address
+<h1>Address Details</h1>
 
-<%= link_to 'skip', next_wizard_path %>
+<%= form_for @address, url: onboarding_path, method: :patch, html: { class: 'form row g-3' } do |form| %>
+  <div class="col-12">
+    <%= form.label :address_line1, class: 'form-label' %>
+    <%= form.text_field :address_line1, class: 'form-control' %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :address_line2, class: 'form-label' %>
+    <%= form.text_field :address_line2, class: 'form-control' %>
+  </div>
+
+  <div class="col-6">
+    <%= form.label :zip, class: 'form-label' %>
+    <%= form.number_field :zip, class: 'form-control' %>
+  </div>
+
+  <div class="col-6">
+    <%= form.label :city, class: 'form-label' %>
+    <%= form.text_field :city, class: 'form-control' %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :country_code, 'Country', class: 'form-label' %>
+    <%= form.select :country_code, ['India', 'US'], {}, class: 'form-select' %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+    <%= link_to 'skip', next_wizard_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
