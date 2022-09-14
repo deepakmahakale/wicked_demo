@@ -1,31 +1,16 @@
 <div class="card">
   <h5 class="card-header">Personal Details</h5>
 
-  <%= form_for @user, url: onboarding_path, method: :patch, html: { class: 'g-3' } do |form| %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-6">
-          <%= form.label :age, class: 'form-label' %>
-          <%= form.number_field :age, class: 'form-control' %>
-        </div>
-
-        <div class="col-6">
-          <%= form.label :gender, class: 'form-label' %>
-          <%= form.select :gender, %w[Male Female], {}, class: 'form-select' %>
-        </div>
-
-        <div class="col-12">
-          <%= form.label :date_of_birth, class: 'form-label' %>
-          <%= form.date_field :date_of_birth, class: 'form-control' %>
-        </div>
-      </div>
+  <%= simple_form_for @user, url: onboarding_path, method: :patch, wrapper: :horizontal_form do |form| %>
+    <div class="card-body d-grid gap-3">
+      <%= form.input :age %>
+      <%= form.input :gender, collection: %w[Male Female] %>
+      <%= form.input :date_of_birth, as: :date, html5: true, wrapper: :horizontal_form %>
     </div>
 
     <div class="card-footer bg-transparent">
-      <div class="col-12">
-        <%= form.submit 'Submit', class: "btn btn-primary" %>
-        <%= link_to 'skip', next_wizard_path, class: 'btn btn-secondary' %>
-      </div>
+      <%= form.button :submit , 'Submit', class: "btn-primary" %>
+      <%= link_to 'skip', next_wizard_path, class: 'btn btn-outline-secondary' %>
     </div>
   <% end %>
 </div>

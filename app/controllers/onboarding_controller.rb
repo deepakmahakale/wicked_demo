@@ -4,7 +4,7 @@ class OnboardingController < ApplicationController
   steps :basic_details, :personal_details, :address_details
 
   def show
-    @user = User.last || User.create
+    @user = User.last || User.new
     case step
     when :address_details
       @address = @user.address || @user.build_address
@@ -13,16 +13,15 @@ class OnboardingController < ApplicationController
   end
 
   def update
-    @user = User.last || User.create
+    @user = User.last || User.new
     case step
     when :address_details
       @address = @user.address || @user.build_address
       @address.update(address_params)
-      @address.errors.add(:address_line1, 'error')
       render_wizard @address
     else
       @user.update(user_params)
-      render_wizard @user
+      render_wizard @user, context: step
     end
   end
 
@@ -30,7 +29,7 @@ class OnboardingController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :first_name, :last_name, :age, :gender, :date_of_birth
+      :first_name, :last_name, :email, :age, :gender, :date_of_birth
     )
   end
 
