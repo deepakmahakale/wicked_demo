@@ -3,9 +3,11 @@
 
   <% wizard_steps.each_with_index do |step, index| %>
     <div class="step-item">
-      <button class="step-button text-center <%= 'done' if past_step?(step) %>" type="button">
-        <%= index + 1 %>
-      </button>
+      <%= link_to past_step?(step) ? wizard_path(step) : 'javascript:void(0);' do %>
+        <button class="step-button text-center <%= 'done' if past_step?(step) %>" type="button">
+          <%= index + 1 %>
+        </button>
+      <% end %>
       <div class="step-title">
         <%= step.to_s.titleize %>
       </div>
