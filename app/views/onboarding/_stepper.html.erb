@@ -1,0 +1,14 @@
+<div class="steps">
+  <progress id="progress" value=<%= @ui_progress %> max=100></progress>
+
+  <% wizard_steps.each_with_index do |step, index| %>
+    <div class="step-item">
+      <button class="step-button text-center <%= 'done' if past_step?(step) %>" type="button">
+        <%= index + 1 %>
+      </button>
+      <div class="step-title">
+        <%= step.to_s.titleize %>
+      </div>
+    </div>
+  <% end %>
+</div>
